@@ -12,6 +12,7 @@
 		C52AAFEE1D0FD84C001D7AF1 /* Tanzan.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C52AAFEC1D0FD84C001D7AF1 /* Tanzan.xcdatamodeld */; };
 		C52AAFF01D0FD84C001D7AF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C52AAFEF1D0FD84C001D7AF1 /* Assets.xcassets */; };
 		C52AAFF31D0FD84C001D7AF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C52AAFF11D0FD84C001D7AF1 /* LaunchScreen.storyboard */; };
+		C52E681C1D152267006386C5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C52E681E1D152267006386C5 /* InfoPlist.strings */; };
 		C56A5F571D11859B0052B889 /* Ranker.m in Sources */ = {isa = PBXBuildFile; fileRef = C56A5F561D11859B0052B889 /* Ranker.m */; };
 		C56A5F591D118D4A0052B889 /* RankingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C56A5F581D118D4A0052B889 /* RankingView.xib */; };
 		C56A5F5C1D118F5D0052B889 /* RankView.m in Sources */ = {isa = PBXBuildFile; fileRef = C56A5F5B1D118F5D0052B889 /* RankView.m */; };
@@ -181,6 +182,8 @@
 		C52AAFEF1D0FD84C001D7AF1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C52AAFF21D0FD84C001D7AF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C52AAFF41D0FD84C001D7AF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C52E681D1D152267006386C5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C52E681F1D152269006386C5 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C56A5F551D11859B0052B889 /* Ranker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Ranker.h; path = RankClass/Ranker.h; sourceTree = "<group>"; };
 		C56A5F561D11859B0052B889 /* Ranker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Ranker.m; path = RankClass/Ranker.m; sourceTree = "<group>"; };
 		C56A5F581D118D4A0052B889 /* RankingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RankingView.xib; sourceTree = "<group>"; };
@@ -464,6 +467,7 @@
 				C52AAFF11D0FD84C001D7AF1 /* LaunchScreen.storyboard */,
 				C5EE85D51D11778100F3D2B0 /* MainS.storyboard */,
 				C52AAFF41D0FD84C001D7AF1 /* Info.plist */,
+				C52E681E1D152267006386C5 /* InfoPlist.strings */,
 				C5BE6AA61D13EB8D00278702 /* Localizable.strings */,
 				C5D3076D1D12D2E8007BAC33 /* Instructions */,
 				C581EDF41D125A4D0078E0F3 /* MGVC */,
@@ -1013,6 +1017,7 @@
 				C5EE84291D0FDE9600F3D2B0 /* Score12.png in Resources */,
 				C5EE84481D0FDF4F00F3D2B0 /* TargetBackground.png in Resources */,
 				C5EE840C1D0FDE6D00F3D2B0 /* MultiplySelected.png in Resources */,
+				C52E681C1D152267006386C5 /* InfoPlist.strings in Resources */,
 				C5EE85461D0FE31700F3D2B0 /* T7.png in Resources */,
 				C5EE84651D0FDF6300F3D2B0 /* 4P0.png in Resources */,
 				C5EE853D1D0FE31700F3D2B0 /* Start.png in Resources */,
@@ -1077,6 +1082,15 @@
 				C5EE84361D0FDEC200F3D2B0 /* en */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		C52E681E1D152267006386C5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C52E681D1D152267006386C5 /* en */,
+				C52E681F1D152269006386C5 /* ja */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 		C5BE6AA61D13EB8D00278702 /* Localizable.strings */ = {
