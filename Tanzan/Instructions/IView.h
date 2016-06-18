@@ -10,4 +10,6 @@
 
 @interface IView : UIView
 
+@property (nonatomic, strong) IBOutlet UIButton * backButton;
+
 @end

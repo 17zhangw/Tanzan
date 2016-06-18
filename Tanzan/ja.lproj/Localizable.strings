@@ -6,16 +6,15 @@
   Copyright © 2016 William-Trademarks. All rights reserved.
 */
 
-"1 Dice"="1 Dice";
-"2 Dice"="2 Dice";
-"3 Dice"="3 Dice";
-"4 Dice"="4 Dice";
-"5 Dice"="5 Dice";
-"6 Dice"="6 Dice";
-"GAMEFINISHED"="Game Finished";
-"BUYPRO"="If you would like more levels, please purchase the Pro version.";
-"DISMISS"="Dismiss";
-"PURCHASEALERT"="Purchase";
-"BACK"="Back";
-"SELECT_DICE_TITLE"="Select Number of Dice";
-"SELECT_DICE_MSG"="The following options are available";
+"2 Dice"="2個";
+"3 Dice"="3個";
+"4 Dice"="4個";
+"5 Dice"="5個";
+"6 Dice"="6個";
+"GAMEFINISHED"="試合終了";
+"BUYPRO"="あなたはより多くのレベルをご希望の場合は、プロ版を購入してください。";
+"DISMISS"="退ける";
+"PURCHASEALERT"="購入";
+"BACK"="戻る";
+"SELECT_DICE_TITLE"="サイコロ数の選択";
+"SELECT_DICE_MSG"="以後のオプションは選択可能です";

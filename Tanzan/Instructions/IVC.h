@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface IVC : UIViewController
+@interface IVC : UIViewController <UIScrollViewDelegate>
+
+@property (nonatomic, strong) IBOutlet UIScrollView * scrollView;
+- (IBAction)back:(id)sender;
 
 @end

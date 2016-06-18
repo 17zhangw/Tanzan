@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" name="">
+    <entity name="Scoring" representedClassName="Scoring" syncable="YES" elementID="Scoring">
+        <attribute name="stage" optional="YES" syncable="YES" elementID="stage" attributeType="Integer 16" defaultValueString="0"/>
+        <attribute name="number" optional="YES" syncable="YES" elementID="number" attributeType="Integer 16" defaultValueString="0"/>
+        <attribute name="level" optional="YES" syncable="YES" elementID="level" attributeType="Integer 16" defaultValueString="0"/>
+        <attribute name="award" optional="YES" syncable="YES" elementID="award" attributeType="Float" defaultValueString="0"/>
+        <attribute name="clearscore" optional="YES" syncable="YES" elementID="clearscore" attributeType="Integer 16" defaultValueString="0"/>
+        <attribute name="time" optional="YES" syncable="YES" elementID="time" attributeType="Integer 16" defaultValueString="0"/>
+    </entity>
     <elements/>
 </model>

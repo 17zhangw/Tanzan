@@ -10,4 +10,8 @@
 
 @interface RankVC : UIViewController
 
+@property (nonatomic, strong) IBOutlet UIView * rankView;
+@property (nonatomic, strong) IBOutlet UIButton * back;
+- (IBAction)back:(id)sender;
+
 @end

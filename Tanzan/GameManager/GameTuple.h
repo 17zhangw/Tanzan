@@ -10,4 +10,14 @@
 
 @interface GameTuple : NSObject
 
+@property (nonatomic) BOOL isFinished;
+
+@property (nonatomic) int level;
+@property (nonatomic) int stage;
+
+@property (nonatomic) int timeLimit;
+@property (nonatomic) int targetNumber;
+
+@property (nonatomic) NSArray * diceObjects;
+
 @end

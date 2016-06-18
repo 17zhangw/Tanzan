@@ -7,7 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface Dice : NSObject
+
+@property (nonatomic, readonly) int diceNumber;
+@property (nonatomic, weak) UIImageView * diceImage;
+
+@property (nonatomic) int diceState;
+
+- (void)spinRandomNumber;
+- (void)diceSelected;
+- (void)diceOperationPerformed;
+- (void)diceDeselected;
 
 @end

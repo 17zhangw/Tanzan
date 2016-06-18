@@ -8,6 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+@interface Rank : NSObject
+@property (nonatomic) int score;
+@property (nonatomic) NSString * formattedDate;
+@end
+
 @interface Ranker : NSObject
+
+@property (nonatomic, strong) NSMutableArray * ranks;
+- (int)insertScore:(int)score;
 
 @end
