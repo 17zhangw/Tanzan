@@ -1,0 +1,20 @@
+//
+//  CircularProgressTimer.h
+//  CircularProgressTimer
+//
+//  Created by mc on 6/30/13.
+//  Copyright (c) 2013 mauricio. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface CircularProgressTimer : UIView {
+    CGFloat startAngle;
+    CGFloat endAngle;
+}
+
+@property (nonatomic) NSInteger percent;
+@property (nonatomic) double totalSeconds;
+@property (nonatomic) NSInteger secondsLeft;
+
+@end
