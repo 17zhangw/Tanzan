@@ -24,7 +24,10 @@
 
 @interface MGVC ()
 @property (nonatomic) BOOL isProVersion;
+
 @property (nonatomic) BOOL isGameOver;
+@property (nonatomic) BOOL isIncorrect;
+
 @property (nonatomic) GameManager * manager;
 @property (nonatomic) NSArray * diceObjects;
 
@@ -109,6 +112,9 @@
 #pragma mark - Display Markdown
 
 - (void)displayMarkdown {
+    self.selectedDice = nil;
+    self.selectedOperationButton = nil;
+    
     [self drawCircularProgressBarWithSecondsLeft:self.totalSeconds];
     self.textLabel.text = @"";
     
@@ -126,8 +132,6 @@
             [(UIImageView*)obj setImage:img];
     }
     
-    [self setHiddenStateOfImageViews:YES];
-    self.countdownView = [[UIView alloc] initWithFrame:self.diceBackground.frame];
     int level = 1;
     int stage = 1;
     BOOL doesRoundExist = [self.manager promptForNextRound:&level stage:&stage];
@@ -136,6 +140,11 @@
         return;
     }
     
+    [self setHiddenStateOfImageViews:YES];
+    [self.levelIndicator setHidden:YES];
+    [self.stageIndicator setHidden:YES];
+    
+    self.countdownView = [[UIView alloc] initWithFrame:self.diceBackground.frame];
     CGFloat width = self.diceBackground.frame.size.width/2;
     CGFloat height = 40;
     CGFloat x = self.diceBackground.frame.size.width/2 - width / 2;
@@ -178,8 +187,10 @@
                 self.isEmergencyPlaying = YES;
                 NSError * e;
                 NSURL * u = [[NSBundle mainBundle] URLForResource:@"Siren" withExtension:@"mp3"];
-                self.backgroundPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:u error:&e];
-                [self.backgroundPlayer play];
+                [self.backgroundPlayer pause];
+                
+                self.effectsPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:u error:&e];
+                [self.effectsPlayer play];
             }
         }
         
@@ -222,6 +233,9 @@
     NSString * sImage = [NSString stringWithFormat:@"Stage%d",[t stage]];
     [self.levelIndicator setImage:[UIImage imageNamed:lImage]];
     [self.stageIndicator setImage:[UIImage imageNamed:sImage]];
+    
+    [self.levelIndicator setHidden:NO];
+    [self.stageIndicator setHidden:NO];
     
     self.secondsLeft = [t timeLimit];
     self.totalSeconds = [t timeLimit];
@@ -369,6 +383,8 @@
 }
 
 - (void)validateAnswer {
+    if (self.isGameOver) return;
+    
     [self.timer invalidate];
     
     NSExpression * exp = [NSExpression expressionWithFormat:self.calculationString];
@@ -378,6 +394,7 @@
         
         SEL sel = @selector(countdownSequence);
         self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:sel userInfo:nil repeats:YES];
+        self.isIncorrect = YES;
     } else {
         [self.backgroundPlayer pause];
         NSURL * url = [[NSBundle mainBundle] URLForResource:@"Game-Clear" withExtension:@"mp3"];
@@ -398,10 +415,10 @@
     [i setAlpha:0.0];
     [self.view addSubview:i];
     
-    [UIView animateWithDuration:0.5 animations:^{
+    [UIView animateWithDuration:1.0 animations:^{
         [i setAlpha:1.0];
     } completion:^(BOOL finished) {
-        [UIView animateWithDuration:0.5 animations:^{
+        [UIView animateWithDuration:1.0 animations:^{
             [i setAlpha:0.0];
         } completion:^(BOOL finished) {
             [i removeFromSuperview];
@@ -430,6 +447,7 @@
 }
 
 - (IBAction)add:(id)sender {
+    if (self.isIncorrect || self.isGameOver) return;
     if (![self isLastCharNumber] && [self.calculationString length] == 0) return;
     if (![self isLastCharNumber])
         self.calculationString = [[self.calculationString substringToIndex:[self.calculationString length]-1] mutableCopy];
@@ -443,6 +461,7 @@
 }
 
 - (IBAction)subtract:(id)sender {
+    if (self.isIncorrect || self.isGameOver) return;
     if (![self isLastCharNumber] && [self.calculationString length] == 0) return;
     if (![self isLastCharNumber])
         self.calculationString = [[self.calculationString substringToIndex:[self.calculationString length]-1] mutableCopy];
@@ -456,6 +475,7 @@
 }
 
 - (IBAction)multiply:(id)sender {
+    if (self.isIncorrect || self.isGameOver) return;
     if (![self isLastCharNumber] && [self.calculationString length] == 0) return;
     if (![self isLastCharNumber])
         self.calculationString = [[self.calculationString substringToIndex:[self.calculationString length]-1] mutableCopy];
@@ -469,6 +489,7 @@
 }
 
 - (IBAction)divide:(id)sender {
+    if (self.isIncorrect || self.isGameOver) return;
     if (![self isLastCharNumber] && [self.calculationString length] == 0) return;
     if (![self isLastCharNumber])
         self.calculationString = [[self.calculationString substringToIndex:[self.calculationString length]-1] mutableCopy];
@@ -483,11 +504,13 @@
 }
 
 - (IBAction)clear:(id)sender {
+    if (self.isGameOver) return;
     self.calculationString = [NSMutableString string];
     [self.selectedOperationButton setSelected:NO];
     
     self.selectedOperationButton = nil;
     self.selectedDice = nil;
+    self.isIncorrect = NO;
     
     for (Dice * dice in self.diceObjects) {
         [dice diceDeselected];
@@ -497,7 +520,7 @@
 #pragma mark - Audio Finished
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
-    if (player == self.effectsPlayer) {
+    if (player == self.effectsPlayer && !self.isGameOver) {
         [self.backgroundPlayer play];
     }
 }

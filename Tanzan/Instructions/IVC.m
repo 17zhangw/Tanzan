@@ -23,7 +23,7 @@
     IView * v;
     if ([locale isEqualToString:@"en-US"]) {
         v = (IView*)[[NSBundle mainBundle] loadNibNamed:@"InstructView" owner:self options:nil][0];
-    } else if ([locale isEqualToString:@"ja-JP"]) {
+    } else {
         v = (IView*)[[NSBundle mainBundle] loadNibNamed:@"InstructView2" owner:self options:nil][0];
     }
     
