@@ -75,13 +75,11 @@
     // Create the coordinator and store
     NSString * document = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
     NSString * sqlite = [document stringByAppendingPathComponent:@"Tanzan.sqlite"];
-    if (![[NSFileManager defaultManager] fileExistsAtPath:sqlite]) {
-        NSString * src = [[NSBundle mainBundle] pathForResource:@"Tanzan" ofType:@"sqlite"];
-        NSError * e;
-        [[NSFileManager defaultManager] copyItemAtPath:src toPath:sqlite error:&e];
-        
-        if (e) NSLog(@"Error copying store: %@",[e localizedDescription]);
-    }
+    
+    NSError * e;
+    NSString * src = [[NSBundle mainBundle] pathForResource:@"Tanzan" ofType:@"sqlite"];
+    [[NSFileManager defaultManager] copyItemAtPath:src toPath:sqlite error:&e];
+    if (e) NSLog(@"Error copying store: %@",[e localizedDescription]);
     
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"Tanzan.sqlite"];
