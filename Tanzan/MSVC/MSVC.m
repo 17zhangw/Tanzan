@@ -32,8 +32,8 @@
     NSUserDefaults * d = [NSUserDefaults standardUserDefaults];
     
     //!!! warning - faulty pro setting
-    [d setBool:YES forKey:@"Diecaster.ProV"];
-    [d synchronize];
+//    [d setBool:YES forKey:@"Diecaster.ProV"];
+//    [d synchronize];
     
     if ([d boolForKey:@"Diecaster.ProV"]) {
         [self setupProUI];

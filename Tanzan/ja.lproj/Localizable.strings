@@ -18,3 +18,5 @@
 "BACK"="戻る";
 "SELECT_DICE_TITLE"="サイコロ数の選択";
 "SELECT_DICE_MSG"="以後のオプションは選択可能です";
+"ERROR"="エラーの発生";
+"ERROR_MSG"="ゲームを開始中にエラーが発生しました";

@@ -223,6 +223,21 @@
         }
         [self gameFinishedSequence];
         return;
+    } else if (!t) {
+        NSString * title = NSLocalizedString(@"ERROR", nil);
+        NSString * msg = NSLocalizedString(@"ERROR_MSG", nil);
+        UIAlertController * a = [UIAlertController alertControllerWithTitle:title
+                                                                    message:msg
+                                                             preferredStyle:UIAlertControllerStyleAlert];
+        
+        NSString * d = NSLocalizedString(@"DISMISS", nil);
+        UIAlertAction * c = [UIAlertAction actionWithTitle:d style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }];
+        [a addAction:c];
+        
+        [self presentViewController:a animated:YES completion:nil];
+        return;
     }
     
     self.textLabel.text = [NSString stringWithFormat:@"%d",[t targetNumber]];

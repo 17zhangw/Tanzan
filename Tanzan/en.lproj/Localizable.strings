@@ -18,3 +18,5 @@
 "BACK"="Back";
 "SELECT_DICE_TITLE"="Select Number of Dice";
 "SELECT_DICE_MSG"="The following options are available";
+"ERROR"="Error encountered";
+"ERROR_MSG"="An error was encountered loading the game.";
