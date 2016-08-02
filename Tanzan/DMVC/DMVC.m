@@ -37,9 +37,9 @@
     self.maxNumber = [[NSUserDefaults standardUserDefaults] boolForKey:@"Diecaster.ProV"] ? 6 : 3;
     self.diceObjects = [NSMutableArray array];
     
-    [self increaseDice:nil];
-    [self increaseDice:nil];
-    [self increaseDice:nil];
+    [self increaseDice:self.upButton];
+    [self increaseDice:self.upButton];
+    [self increaseDice:self.upButton];
 }
 
 - (void)didReceiveMemoryWarning {

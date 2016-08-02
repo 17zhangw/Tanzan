@@ -26,9 +26,11 @@
 - (void)viewWillAppear:(BOOL)animated {
     RankView * v = (RankView*)[[NSBundle mainBundle] loadNibNamed:@"RankingView" owner:nil options:nil][0];
     CGFloat scale = self.view.frame.size.width/v.frame.size.width;
-    v.transform = CGAffineTransformMakeScale(scale, 1);
+    CGFloat height = (self.view.frame.size.height-(self.back.frame.origin.y + self.back.frame.size.height))/v.frame.size.height;
+    v.transform = CGAffineTransformMakeScale(scale, height);
     [self.view addSubview:v];
-    [v setCenter:self.view.center];
+    [v setFrame:CGRectMake(0, self.back.frame.origin.y+self.back.frame.size.height,
+                           v.frame.size.width, v.frame.size.height)];
     
     self.rankD = v;
     

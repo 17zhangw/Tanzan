@@ -177,47 +177,45 @@
 */
 
 - (void)associateImageViewsWithDice:(NSArray *)imageViews {
-    int * index = NULL;
+    NSArray * indexes = nil;
     int count = (int)[self.diceObjects count];
+    
     if (count == 6) {
-        int ind[6] = {0,1,2,3,4,5};
-        index = ind;
+        indexes = @[ @0, @1, @2, @3, @4, @5];
     } else if (count == 4) {
-        int ind[4] = { 0,2,3,5 };
-        index = ind;
+        indexes = @[ @0, @2, @3, @5 ];
     } else if (count == 3 || count == 5) {
         int r = arc4random_uniform(2);
         if (r == 0 && count == 3) {
-            int ind[3] = { 0,4,2 };
-            index = ind;
+            indexes = @[ @0, @4, @2];
         } else if (r == 1 && count == 3) {
-            int ind[3] = { 3,1,5 };
-            index = ind;
+            indexes = @[ @3, @1, @5 ];
         } else if (r == 0 && count == 5) {
-            int ind[5] = { 0,1,2,3,5 };
-            index = ind;
+            indexes = @[ @0, @1, @2, @3, @5 ];
         } else if (r == 1 && count == 5) {
-            int ind[5] = { 0,2,3,4,5 };
-            index = ind;
+            indexes = @[ @0, @2, @3, @4, @5 ];
         }
     } else if (count == 2) {
         int r = arc4random_uniform(3);
         if (r == 0) {
-            int ind[2] = {0,5};
-            index = ind;
+            indexes = @[ @0, @5 ];
         } else if (r == 1) {
-            int ind[2] = {1,4};
-            index = ind;
+            indexes = @[ @1, @4 ];
         } else if (r == 2) {
-            int ind[2] = {2,3};
-            index = ind;
+            indexes = @[ @2, @3 ];
         }
     }
     
     for (int i = 0; i < count; i++) {
-        [(Dice*)self.diceObjects[i] setDiceImage:imageViews[index[i]]];
-        [imageViews[index[i]] setTag:i];
-        [imageViews[index[i]] setHidden:NO];
+        int localIndex = [indexes[i] intValue];
+        UIImageView * imageView = imageViews[localIndex];
+        Dice * diceObj = self.diceObjects[i];
+        [diceObj setDiceImage:imageView];
+        
+//        [(Dice*)self.diceObjects[i] setDiceImage:imageViews[index[i]]];
+        
+        [imageViews[localIndex] setTag:i];
+        [imageViews[localIndex] setHidden:NO];
     }
 }
 

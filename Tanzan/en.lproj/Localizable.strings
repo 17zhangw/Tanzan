@@ -16,6 +16,7 @@
 "DISMISS"="Dismiss";
 "PURCHASEALERT"="Purchase";
 "BACK"="Back";
+"RETURN"="Back";
 "SELECT_DICE_TITLE"="Select Number of Dice";
 "SELECT_DICE_MSG"="The following options are available";
 "ERROR"="Error encountered";

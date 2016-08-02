@@ -16,6 +16,7 @@
 "DISMISS"="退ける";
 "PURCHASEALERT"="購入";
 "BACK"="戻る";
+"RETURN"="戻る";
 "SELECT_DICE_TITLE"="サイコロ数の選択";
 "SELECT_DICE_MSG"="以後のオプションは選択可能です";
 "ERROR"="エラーの発生";

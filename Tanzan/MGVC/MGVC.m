@@ -353,7 +353,7 @@
     UIButton * but = [UIButton buttonWithType:UIButtonTypeSystem];
     [but setBackgroundImage:[UIImage imageNamed:@"Back"] forState:UIControlStateNormal];
     [but addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
-    [but setFrame:CGRectMake(self.view.frame.size.width - 100, rankView.frame.origin.y-40-5, 100, 40)];
+    [but setFrame:CGRectMake(self.view.frame.size.width - 100, rankView.frame.origin.y-40, 100, 40)];
     [self.view addSubview:but];
 }
 
